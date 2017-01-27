@@ -204,14 +204,14 @@ function fetchOrders(userId) {
 		for (let i = 0; i < orders.length; i++) {
 			// keep a reference to latest order for each user
 			users[userId].latestOrder = orders[i];
-			orders[orders[i].orderId] = orders[i];
+			userOrders[orders[i].orderId] = orders[i];
 		}
 	} );
 }
 
 function deleteOrder(orderId) {
-	var user = users[ orders[orderId].userId ];
-	var isLatestOrder = (orders[orderId] == user.latestOrder);
+	var user = users[ userOrders[orderId].userId ];
+	var isLatestOrder = (userOrders[orderId] == user.latestOrder);
 
 	// deleting the latest order for a user?
 	if (isLatestOrder) {
@@ -225,7 +225,7 @@ function deleteOrder(orderId) {
 				user.latestOrder = null;
 			}
 
-			orders[orderId] = null;
+			userOrders[orderId] = null;
 		}
 		else if (isLatestOrder) {
 			showLatestOrderDisplay();
@@ -403,11 +403,11 @@ What about DOM updates?
 var hist = document.getElementById( "orderHistory" );
 
 // idempotent:
-hist.orderHistory.innerHTML = order.historyText;
+hist.innerHTML = order.historyText;
 
 // non-idempotent:
 var update = document.createTextNode( order.latestUpdate );
-hist.orderHistory.appendChild( update );
+hist.appendChild( update );
 ```
 
 The key difference illustrated here is that the idempotent update replaces the DOM element's content. The current state of the DOM element is irrelevant, because it's unconditionally overwritten. The non-idempotent operation adds content to the element; implicitly, the current state of the DOM element is part of computing the next state.

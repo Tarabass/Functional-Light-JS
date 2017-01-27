@@ -39,7 +39,11 @@
 	* Reassignment
 	* Performance
 	* Treatment
-* Chapter 7: List Operations
+* Chapter 7: Closure vs Object
+	* The Same Page
+	* Look Alike
+	* Two Roads Diverged In A Wood...
+* Chapter 8: List Operations
 	* Non-FP List Processing
 	* Map
 	* Filter
@@ -49,15 +53,16 @@
 	* Looking For Lists
 	* Fusion
 	* Beyond Lists
-* Chapter 8: Recursion
+* Chapter 9: Recursion
 	* Definition
 	* Declarative Recursion
 	* Stack
 	* Rearranging Recursion
-* Chapter 9: Functional Async
+* Chapter 10: Functional Async
 	* Time As State
-	* Lazy vs Eager
-* Chapter 10: Putting It All Together
+	* Eager vs Lazy
+	* Reactive FP
+* Chapter 11: Putting It All Together
 * Appendix A: Transducing
 * Appendix B: The Humble Monad
 * Appendix C: FP Libraries
